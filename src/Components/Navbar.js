@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
-    <nav className="flex border-b-2 items-center p-4">
-      <span className="font-extrabold text-lg">TWEET</span>
+    <nav className="flex items-center p-4 fixed backdrop-blur-md w-full border-b-2 ">
+      <Link to="/">
+        <span className="font-bold text-lg">TWEET</span>
+      </Link>
       <ul
-        className="flex pl-6 space-x-2 font-semibold
+        className="flex pl-6 space-x-4 font-semibold
     "
       >
-        <li className="text-black">
+        <li className="text-gray-800">
           <Link to="/">Home</Link>
         </li>
-        <li className="text-black">
-          <Link to="/schedule">Schedule</Link>
+        <li className="text-gray-800">
+          <Link to="/summary">Summary</Link>
         </li>
       </ul>
     </nav>
