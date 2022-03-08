@@ -6,6 +6,8 @@ import Navbar from "./Components/Navbar";
 import Schedule from "./pages/Schedule";
 import Footer from "./Components/Footer";
 import Signup from "./pages/Signup";
+import ComponentsScreen from "./pages/Components";
+import React from "react";
 
 function App() {
   const location = useLocation();
@@ -17,6 +19,7 @@ function App() {
         <Route path="/summary" element={<Summary />} />
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/components" element={<ComponentsScreen />} />
       </Routes>
       <Footer />
     </div>

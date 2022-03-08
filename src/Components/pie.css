@@ -1,0 +1,24 @@
+.piechart {
+    display: block;
+    margin: 1px;
+
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+    z-index: -2;
+}
+
+.hole {
+    position: absolute;
+    
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.1s ease-in-out;
+
+    z-index: -1;
+}
+
+.piechart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

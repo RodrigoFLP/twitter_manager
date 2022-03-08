@@ -1,5 +1,5 @@
-import React from "react";
-import TweetCard from "../Components/TweetCard";
+import React, { useState } from "react";
+import TweetCard from "../Components/TweetC";
 import { Clock, RefreshCcw, FilePlus } from "react-feather";
 import TitleBar from "../Components/TitleBar";
 import tweets from "../data/tweets.json";
@@ -20,29 +20,31 @@ const tweetInfo = {
 
 export const Summary = () => {
   return (
-    <div className="p-4 space-y-4 pt-20">
-      <Link to="/schedule">
-        <button className="p-4 bg-gray-50 rounded-md border-dashed border-2 font-semibold flex space-x-4 hover:bg-white cursor-pointer w-full">
-          <FilePlus />
-          <span> Schedule action</span>
-        </button>
-      </Link>
-      <TitleBar
-        render={(props) => <Clock {...props} />}
-        title="Scheduled actions"
-      />
+    <>
+      <div className="p-4 space-y-4 pt-20">
+        <Link to="/schedule">
+          <button className="p-4 bg-gray-50 rounded-md border-dashed border-2 font-semibold flex space-x-4 hover:bg-white cursor-pointer w-full">
+            <FilePlus />
+            <span> Schedule action</span>
+          </button>
+        </Link>
+        <TitleBar
+          render={(props) => <Clock {...props} />}
+          title="Scheduled actions"
+        />
 
-      <TweetCard {...tweetInfo} />
-      <TitleBar
-        render={(props) => <RefreshCcw {...props} />}
-        title="Recent Tweets"
-      />
-      <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
-        {tweets.map((data) => (
-          <TweetCard {...data} />
-        ))}
+        <TweetCard {...tweetInfo} />
+        <TitleBar
+          render={(props) => <RefreshCcw {...props} />}
+          title="Recent Tweets"
+        />
+        <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+          {tweets.map((data) => (
+            <TweetCard {...data} key={data.date} />
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
