@@ -19,6 +19,8 @@ const tweetInfo = {
 };
 
 export const Summary = () => {
+  const [selectedItems, setSelectedItems] = useState([]);
+
   return (
     <>
       <div className="p-4 space-y-4 pt-20">
@@ -38,9 +40,18 @@ export const Summary = () => {
           render={(props) => <RefreshCcw {...props} />}
           title="Recent Tweets"
         />
-        <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
+        <div className="bg-gray-50 rounded-md p-4 h-14 flex justify-between ">
+          <div>{selectedItems.length} selected</div>
+          <button onClick={() => setSelectedItems([])}>Clear</button>
+        </div>
+        <div className="z-0 space-y-4 md:space-y-0  md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-4">
           {tweets.map((data) => (
-            <TweetCard {...data} key={data.date} />
+            <TweetCard
+              {...data}
+              key={data.date}
+              selected={selectedItems.includes(data.date)}
+              setItem={setSelectedItems}
+            />
           ))}
         </div>
       </div>

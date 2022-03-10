@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { PlusCircle } from "react-feather";
 import Counter from "../Components/Counter";
 import TitleBar from "../Components/TitleBar";
-import TweetCard from "../Components/TweetCard";
+import TweetCard from "../Components/TweetC";
 
 export const Schedule = () => {
   const [tweet, setTweet] = useState("");
@@ -45,7 +45,9 @@ export const Schedule = () => {
           render={(props) => <PlusCircle {...props} />}
           title="Preview"
         />
-        <TweetCard {...tweetInfo} />
+        <div>
+          <TweetCard {...tweetInfo} />
+        </div>
       </main>
       <article className="bg-gray-50 md:w-1/2 h-full p-4">
         <span className="font-semibold text-lg">Scheduled actions</span>
