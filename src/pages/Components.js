@@ -1,5 +1,5 @@
 import React from "react";
-import { TweetCard } from "../Components/TweetC";
+import { DatePicker } from "../Components/DatePicker";
 
 const tweetInfo = {
   name: "Fastic",
@@ -16,11 +16,11 @@ const tweetInfo = {
 
 export const ComponentsScreen = () => {
   return (
-    <>
-      <div className="bg-slate-300 m-28 p-4">
-        <TweetCard {...tweetInfo} />
+    <div className="bg-slate-100 mt-16">
+      <div className="bg-white p-4">
+        <DatePicker {...tweetInfo} />
       </div>
-    </>
+    </div>
   );
 };
 

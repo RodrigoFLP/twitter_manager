@@ -54,6 +54,7 @@ export const TweetCard = ({
           alt="avatar"
         />
       </div>
+
       <div id="main-content" className="w-full ">
         <div className="flex space-x-1 whitespace-nowrap w-8/12  absolute">
           <span className="font-bold ">{name}</span>

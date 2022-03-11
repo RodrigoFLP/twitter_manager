@@ -2,7 +2,7 @@ import React from "react";
 import "./pie.css";
 
 export const Counter = ({ count }) => {
-  const limit = 100;
+  const limit = 280;
   const warning = 20;
   const isWarning = limit - count <= warning;
   const isFull = limit - count <= 0;
@@ -49,7 +49,7 @@ export const Counter = ({ count }) => {
 
   return (
     <div
-      class="piechart"
+      className="piechart"
       style={{
         backgroundImage: `conic-gradient(${data.color} ${percentage}%, #e2e2e2 ${percentage}%)`,
         width: `${data.outerSize}`,
@@ -57,14 +57,18 @@ export const Counter = ({ count }) => {
       }}
     >
       <div
-        class="hole"
+        className="hole"
         style={{
           width: `${data.innerSize}`,
           height: `${data.innerSize}`,
         }}
       ></div>
+
       {isWarning && (
-        <span className={`text-xs ${data.textColor} `}> {limit - count}</span>
+        <span className={`text-xs ${data.textColor}  z-40`}>
+          {" "}
+          {limit - count}
+        </span>
       )}
     </div>
   );
