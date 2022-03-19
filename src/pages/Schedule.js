@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Counter from "../Components/Counter";
 import PhotoIcon from "../assets/icons/Photo";
 import { EmojiIcon } from "../assets/icons/Emoji";
 import DatePicker from "../Components/DatePicker";
 import { Picker } from "emoji-mart";
 import "emoji-mart/css/emoji-mart.css";
+import SelectInput from "../Components/SelectInput";
 
 export const Schedule = () => {
   const [tweet, setTweet] = useState("");
   const [showPicker, setShowPicker] = useState(false);
+  const [selectedFeature, setSelectedFeature] = useState({ option: 0 });
+  const [isValid, setValid] = useState(true);
 
   const tweetInfo = {
     name: "Fastic",
@@ -22,6 +25,8 @@ export const Schedule = () => {
       "https://www.gravatar.com/avatar/94d093eda664addd6e450d7e9881bcad?&d=identicon&r=PG",
   };
 
+  console.log(selectedFeature);
+
   return (
     <div className="mt-16 space-y-4 md:flex md:flex-row w-full h-full bg-gray-50">
       <div
@@ -29,7 +34,12 @@ export const Schedule = () => {
         onClick={() => setShowPicker(false)}
       ></div>
 
-      <main className="md:w-1/2 space-y-4 p-4 ">
+      <main className="md:w-1/2 space-y-4 p-4 flex flex-col">
+        <SelectInput
+          label="option"
+          setValue={setSelectedFeature}
+          options={["Schedule new tweet", "Schedule delete tweet"]}
+        />
         <form className="space-y-4  rounded-lg  shadow-sm bg-white shadow-gray-100 p-4 ">
           <div className="flex flex-row space-x-2">
             <div className="w-10 h-10 shrink-0 overflow-hidden rounded-full">
@@ -87,10 +97,17 @@ export const Schedule = () => {
             </div>
           </div>
         </form>
-        <DatePicker />
+        <DatePicker isValid={setValid} />
+        <button
+          className="bg-blue-500  p-2 rounded-md text-white font-semibold w-1/3 place-self-end
+        hover:bg-white hover:text-blue-500 disabled:bg-gray-100 disabled:text-gray-400"
+          disabled
+        >
+          Schedule
+        </button>
       </main>
       <article className="md:w-1/2 h-full p-4">
-        <span className="font-semibold text-lg">Scheduled actions</span>
+        <span className="font-semibold text-lg ">Scheduled actions</span>
       </article>
     </div>
   );

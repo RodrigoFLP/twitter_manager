@@ -8,15 +8,20 @@ export const Navbar = () => {
         <span className="font-bold text-lg">TWEET</span>
       </Link>
       <ul
-        className="flex pl-6 space-x-4 font-semibold
+        className="flex pl-6 space-x-2 font-semibold
     "
       >
-        <li className="text-gray-800">
-          <Link to="/">Home</Link>
-        </li>
-        <li className="text-gray-800">
-          <Link to="/summary">Summary</Link>
-        </li>
+        <Link to="/">
+          <li className="text-gray-800 hover:bg-gray-100 hover:text-gray-900 p-2 rounded-md transition">
+            Home
+          </li>
+        </Link>
+
+        <Link to="/summary">
+          <li className="text-gray-800 hover:bg-gray-100 hover:text-gray-900 p-2 rounded-md transition">
+            Summary
+          </li>
+        </Link>
       </ul>
     </nav>
   );

@@ -18,7 +18,7 @@ export const Home = () => {
             </div>
             <Link to="/signup">
               <button
-                className="bg-black text-white font-semibold p-3 rounded-md w-full"
+                className="bg-black text-white font-semibold p-3 rounded-md w-full hover:bg-white hover:text-black hover:outline hover:outline-2 transition-colors outline-black"
                 type="submit"
               >
                 Start managing

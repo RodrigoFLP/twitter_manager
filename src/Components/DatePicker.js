@@ -18,7 +18,7 @@ const months = [
   "december",
 ];
 
-export const DatePicker = () => {
+export const DatePicker = ({ isValid }) => {
   const currentDate = new Date();
   const currentMinute = currentDate.getMinutes() - 1;
   const currentHours =
@@ -61,6 +61,8 @@ export const DatePicker = () => {
   const isBefore = selectedDate.isBefore(moment());
 
   const error = !selectedDate.isValid() || isBefore;
+
+  //set if is valid
 
   return (
     <div id="picker-body">
